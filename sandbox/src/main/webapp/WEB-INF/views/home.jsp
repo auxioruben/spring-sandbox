@@ -10,9 +10,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<table>
-<tr>
-	<td align="center">
+
+<p><a href="/sandbox/webcalc">Web Calculator</a></p>
+<p><a href="/sandbox/mci">Monolith Conglomerate International</a></p>
 </tr>
 </table>
 </body>

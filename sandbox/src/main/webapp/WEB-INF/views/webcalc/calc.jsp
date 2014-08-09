@@ -9,7 +9,7 @@
 	</style>
 </head>
 <body>
-        <form:form action="eval" method="post" commandName="calcForm">
+        <form:form action="/webcalc" method="post" commandName="calcForm">
             <table>
                 <tr>
                     <td colspan="3" align="center"><h2>Web Calculator</h2></td>

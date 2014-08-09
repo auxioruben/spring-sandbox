@@ -26,12 +26,12 @@ public class CalcController {
 	/**
 	 * Calculates the result of a given expression
 	 */
-	@RequestMapping(value = "/eval", method = RequestMethod.POST)
+	@RequestMapping(value = "/webcalc", method = RequestMethod.POST)
 	public String calcResults(@ModelAttribute("calcForm") @Valid CalcModel cm, BindingResult result, Model model) {
 		logger.info("Passed expression {}.", cm.getExpression());
 		double ans;
 		if (result.hasErrors()) {
-			return "calc";
+			return "/webcalc/calc";
 		}
 		
 		try {
@@ -43,13 +43,13 @@ public class CalcController {
 			cm.setResult("");
 			result.rejectValue("expression", "object.calcModel", e.getMessage());
 		}
-		return "calc";
+		return "/webcalc/calc";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/webcalc", method = RequestMethod.GET)
 	public String displayCalc(Model model) {
 		CalcModel cm = new CalcModel();    
 	    model.addAttribute("calcForm", cm);
-	    return "calc";
+	    return "/webcalc/calc";
 	}	
 }
