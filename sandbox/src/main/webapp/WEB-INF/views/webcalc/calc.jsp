@@ -9,15 +9,15 @@
 	</style>
 </head>
 <body>
-        <form:form action="/webcalc" method="post" commandName="calcForm">
+        <form:form action="/sandbox/webcalc" method="post" commandName="calcForm">
             <table>
                 <tr>
                     <td colspan="3" align="center"><h2>Web Calculator</h2></td>
                 </tr>
                 <tr>
                     <td>Expression:</td>
-                    <td><form:input path="expression" cssErrorClass=".error"/></td>
-                    <td><form:errors path="expression" /></td>
+                    <td><form:input path="expression" /></td>
+                    <td><form:errors path="expression" cssClass="error" /></td>
                 </tr>
                 <tr>
                     <td>Result</td>
@@ -28,6 +28,7 @@
                 </tr>
             </table>
         </form:form>
-
+<hr>        
+<p><a href="/sandbox">Return to Sandbox</a></p>
 </body>
 </html>
