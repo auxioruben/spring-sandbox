@@ -13,7 +13,6 @@
 
 <p><a href="/sandbox/webcalc">Web Calculator</a></p>
 <p><a href="/sandbox/mci">Monolith Conglomerate International</a></p>
-</tr>
-</table>
+
 </body>
 </html>

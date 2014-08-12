@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MCI Administration</title>
+<title>Access Denied</title>
 </head>
 <body>
-<h2>This is the admin page.</h2>
-<p><a href="/sandbox/logout">Logout</a></p>
+	<h1>HTTP Status 403 - Access is denied</h1>
+	<h2>${msg}</h2>
 <hr>
-<p><a href="/sandbox">Return to Sandbox</a></p>
-<p><a href="/sandbox/mci">Return to MCI home</a></p>
+<P>  The time on the server is ${serverTime}. </P>
+<p><a href = "/sandbox/mci">Return to MCI Home</a></p>
+<p><a href = "/sandbox">Return to Sandbox</a>
 </body>
 </html>

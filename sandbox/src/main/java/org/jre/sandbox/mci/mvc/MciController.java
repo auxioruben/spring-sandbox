@@ -1,11 +1,11 @@
 package org.jre.sandbox.mci.mvc;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import javax.validation.Valid;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,6 @@ public class MciController {
 	@RequestMapping(value = {"/mci", "/mci/home"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("MCI home chosen.");
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
@@ -38,7 +37,6 @@ public class MciController {
 	@RequestMapping(value = "/mci/about", method = RequestMethod.GET)
 	public String about(Locale locale, Model model) {
 		logger.info("MCI about chosen.");
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
@@ -49,13 +47,10 @@ public class MciController {
 	
 	@RequestMapping(value = "/mci/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
-		logger.info("Menu option chosen");
-		
+		logger.info("MCI admin chosen");
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
 		String formattedDate = dateFormat.format(date);
-		
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "/mci/admin";
@@ -77,5 +72,21 @@ public class MciController {
 			return "/mci/user";
 		}
 		return "/mci/user";
+	}
+	
+	@RequestMapping(value = "/mci/403")
+	public String accessDenied(Principal user, Model model, Locale locale) {
+		logger.info("Access Denied");
+		
+		if (user != null) 
+			model.addAttribute("msg", "User: " + user.getName() + " is not authorized to view this page." );
+		else
+			model.addAttribute("msg", "You are not authorized to view this page." );
+				
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
+		return "/mci/403";
 	}
 }

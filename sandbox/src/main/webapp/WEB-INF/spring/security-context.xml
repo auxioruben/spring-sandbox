@@ -20,8 +20,11 @@
 <http pattern="/webcalc**" security="none"/>
 
 <http>
+  <access-denied-handler error-page="/mci/403" />
   <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
   <intercept-url pattern="/mci" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/mci/home" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/mci/about" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/mci/admin*" access="ROLE_ADMIN" />
   <intercept-url pattern="/mci/**" access="ROLE_USER" />
   <form-login 
@@ -30,7 +33,7 @@
 	authentication-failure-url="/login?error" 
 	username-parameter="username"
 	password-parameter="password" />
-  <logout logout-success-url="/login?logout" />
+  <logout invalidate-session="true" logout-url="/logout" logout-success-url="/login?logout" />
 </http>
 
 </beans:beans>

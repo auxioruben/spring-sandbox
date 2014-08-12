@@ -8,14 +8,16 @@
 
 <c:choose>
 	<c:when test="${pageContext.request.userPrincipal.name != null}">
-		<h1>
-			Welcome : ${pageContext.request.userPrincipal.name} | <a href="/sandbox/login?logout"> Logout</a>
-		</h1>
+		<h2>
+			Welcome ${pageContext.request.userPrincipal.name} 
+		</h2>
+		<p><a href="/sandbox/logout">Logout</a></p>
 	</c:when>
 	<c:otherwise>
-		<h1>
-			Welcome to Monolith Conglomerate International. | <a href="/sandbox/login">Login</a>  
-		</h1>
+		<h2>
+			Welcome to Monolith Conglomerate International.   
+		</h2>
+		<p><a href="<c:url value="/sandbox/login" />" >Login</a></p>
 	</c:otherwise>
 </c:choose>
 	
