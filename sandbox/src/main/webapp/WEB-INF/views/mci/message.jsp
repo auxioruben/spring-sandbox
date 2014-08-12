@@ -7,9 +7,10 @@
 <title>MCI Administration</title>
 </head>
 <body>
-<h2>This is the admin page.</h2>
+<h2>${msg}</h2>
 <p><a href="/sandbox/logout">Logout</a></p>
 <hr>
+<P>  The time on the server is ${serverTime}. </P>
 <p><a href="/sandbox">Return to Sandbox</a></p>
 <p><a href="/sandbox/mci">Return to MCI home</a></p>
 </body>

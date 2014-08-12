@@ -52,27 +52,33 @@ public class MciController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
-		
-		return "/mci/admin";
+		model.addAttribute("msg", "This is the admin page.");
+		return "/mci/message";
 	}
 	
 	@RequestMapping(value = "/mci/user", method = RequestMethod.GET)
 	public String userView(Locale locale, Model model) {
 		logger.info("User GET chosen");
 		
-		User user = new User();    
-	    model.addAttribute("userForm", user);
-		return "/mci/user";
+		//User user = new User();    
+	    //model.addAttribute("userForm", user);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("msg", "This is the user page.");
+		return "/mci/message";
 	}
 	
-	@RequestMapping(value = "/mci/user", method = RequestMethod.POST)
-	public String userEdit(@ModelAttribute("userForm") @Valid User usr, BindingResult result, Model model) {
-		logger.info("User POST chosen");
-		if (result.hasErrors()) {
-			return "/mci/user";
-		}
-		return "/mci/user";
-	}
+//	@RequestMapping(value = "/mci/user", method = RequestMethod.POST)
+//	public String userEdit(@ModelAttribute("userForm") @Valid User usr, BindingResult result, Model model) {
+//		logger.info("User POST chosen");
+//		if (result.hasErrors()) {
+//			return "/mci/user";
+//		}
+//		return "/mci/user";
+//	}
 	
 	@RequestMapping(value = "/mci/403")
 	public String accessDenied(Principal user, Model model, Locale locale) {
