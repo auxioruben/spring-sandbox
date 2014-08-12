@@ -4,17 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MCI Web</title>
+<title>MCI Administration</title>
 </head>
 <body>
-<h2>MCI Main Menu</h2>
-<table>
-	<tr>
-		<td align="center"><a href="/sandbox/mci/UserView.jsp">View/Edit Account Details</a></td>
-		<td align="center"><a href="/sandbox/login?logout">Logout</a></td>
-		<td align="center"><a href="/sandbox/mci/admin">Administration</a></td>
-	</tr>
-</table>
-
+This is the admin page.
+<p><a href="<c:url value="/j_spring_security_logout" />" >Logout</a></p>
 </body>
 </html>

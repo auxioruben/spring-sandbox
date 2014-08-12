@@ -29,6 +29,7 @@
             </table>
         </form:form>
 <hr>        
+<P>  The time on the server is ${serverTime}. </P>
 <p><a href="/sandbox">Return to Sandbox</a></p>
 </body>
 </html>

@@ -4,17 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MCI Web</title>
+<title>About</title>
 </head>
 <body>
-<h2>MCI Main Menu</h2>
-<table>
-	<tr>
-		<td align="center"><a href="/sandbox/mci/UserView.jsp">View/Edit Account Details</a></td>
-		<td align="center"><a href="/sandbox/login?logout">Logout</a></td>
-		<td align="center"><a href="/sandbox/mci/admin">Administration</a></td>
-	</tr>
-</table>
+<h2>Monolith Conglomerate International</h2>
+We are a multinational firm that produces and sells a variety of useful widgets.
+<hr>
 
+<P>  The time on the server is ${serverTime}. </P>
+<p><a href="/sandbox/mci">Return to MCI Home</a></p>
+<p><a href="/sandbox">Return to Sandbox</a></p>
 </body>
 </html>
