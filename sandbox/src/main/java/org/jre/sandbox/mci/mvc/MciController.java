@@ -46,27 +46,31 @@ public class MciController {
 	
 	
 	@RequestMapping(value = "/mci/admin", method = RequestMethod.GET)
-	public String admin(Locale locale, Model model) {
+	public String admin(Principal user, Locale locale, Model model) {
 		logger.info("MCI admin chosen");
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
+		if (user != null) 
+			model.addAttribute("head", "Welcome, " + user.getName());
 		model.addAttribute("msg", "This is the admin page.");
 		return "/mci/message";
 	}
 	
 	@RequestMapping(value = "/mci/user", method = RequestMethod.GET)
-	public String userView(Locale locale, Model model) {
+	public String userView(Principal user, Locale locale, Model model) {
 		logger.info("User GET chosen");
+		
 		
 		//User user = new User();    
 	    //model.addAttribute("userForm", user);
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
+		if (user != null) 
+			model.addAttribute("head", "Welcome, " + user.getName());
 		model.addAttribute("msg", "This is the user page.");
 		return "/mci/message";
 	}
@@ -84,6 +88,8 @@ public class MciController {
 	public String accessDenied(Principal user, Model model, Locale locale) {
 		logger.info("Access Denied");
 		
+		model.addAttribute("head", "HTTP Status 403 - Verboten!");
+		
 		if (user != null) 
 			model.addAttribute("msg", "User: " + user.getName() + " is not authorized to view this page." );
 		else
@@ -93,6 +99,6 @@ public class MciController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
-		return "/mci/403";
+		return "/mci/message";
 	}
 }

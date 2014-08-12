@@ -19,6 +19,7 @@
 
 <http pattern="/webcalc**" security="none"/>
 
+
 <http>
   <access-denied-handler error-page="/mci/403" />
   <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
