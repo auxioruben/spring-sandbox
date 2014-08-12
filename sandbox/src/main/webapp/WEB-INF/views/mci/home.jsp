@@ -17,7 +17,7 @@
 		<h2>
 			Welcome to Monolith Conglomerate International.   
 		</h2>
-		<p><a href="<c:url value="/sandbox/login" />" >Login</a></p>
+		<p><a href="/sandbox/login">Login</a></p>
 	</c:otherwise>
 </c:choose>
 	

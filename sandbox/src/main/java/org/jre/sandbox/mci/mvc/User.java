@@ -5,17 +5,10 @@ import java.util.Date;
 public class User {
 	private String firstName;
 	private String lastName;
-	private Address address;
 	private String email;
 	private Date dob;
 	
 	
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 	public String getEmail() {
 		return email;
 	}

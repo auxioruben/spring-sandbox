@@ -27,13 +27,12 @@
   <intercept-url pattern="/mci/about" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/mci/admin*" access="ROLE_ADMIN" />
   <intercept-url pattern="/mci/**" access="ROLE_USER" />
-  <form-login 
-	login-page="/login" 
-	default-target-url="/mci/home" 
+  <form-login login-page="/login" default-target-url="/mci/home" 
 	authentication-failure-url="/login?error" 
-	username-parameter="username"
-	password-parameter="password" />
-  <logout invalidate-session="true" logout-url="/logout" logout-success-url="/login?logout" />
+	username-parameter="username" password-parameter="password" />
+  <logout invalidate-session="true" logout-url="/logout" 
+  		  logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
+  <session-management invalid-session-url="/mci/invalidSession.html" />
 </http>
 
 </beans:beans>
