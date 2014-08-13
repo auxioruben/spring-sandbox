@@ -22,8 +22,8 @@
 </c:choose>
 	
 <p><a href="/sandbox/mci/about">About</a></p>
-<p><a href="/sandbox/mci/user">Edit Account Details</a></p>
-<p><a href="/sandbox/mci/admin">Admin</a></p>
+<p><a href="/sandbox/mci/user">User Page</a></p>
+<p><a href="/sandbox/mci/admin">Admin Page</a></p>
 <hr>
 <P>  The time on the server is ${serverTime}. </P>
 <p><a href="/sandbox">Return to Sandbox</a></p>
