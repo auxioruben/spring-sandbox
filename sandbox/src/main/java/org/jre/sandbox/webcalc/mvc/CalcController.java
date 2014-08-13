@@ -13,6 +13,10 @@ import org.jre.sandbox.webcalc.core.CalcException;
 
 import javax.validation.Valid;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 /**
  * Handles requests for the application home page.
@@ -27,7 +31,7 @@ public class CalcController {
 	 * Calculates the result of a given expression
 	 */
 	@RequestMapping(value = "/webcalc", method = RequestMethod.POST)
-	public String calcResults(@ModelAttribute("calcForm") @Valid CalcModel cm, BindingResult result, Model model) {
+	public String calcResults(@ModelAttribute("calcForm") @Valid CalcModel cm, BindingResult result, Model model, Locale locale) {
 		logger.info("Passed expression {}.", cm.getExpression());
 		double ans;
 		if (result.hasErrors()) {
@@ -43,13 +47,19 @@ public class CalcController {
 			cm.setResult("");
 			result.rejectValue("expression", "object.calcModel", e.getMessage());
 		}
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		model.addAttribute("serverTime", dateFormat.format(date));	
 		return "/webcalc/calc";
 	}
 	
 	@RequestMapping(value = "/webcalc", method = RequestMethod.GET)
-	public String displayCalc(Model model) {
+	public String displayCalc(Model model, Locale locale) {
 		CalcModel cm = new CalcModel();    
 	    model.addAttribute("calcForm", cm);
-	    return "/webcalc/calc";
+	    Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		model.addAttribute("serverTime", dateFormat.format(date));	
+		return "/webcalc/calc";
 	}	
 }

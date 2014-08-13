@@ -33,7 +33,7 @@
 	username-parameter="username" password-parameter="password" />
   <logout invalidate-session="true" logout-url="/logout" 
   		  logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
-  <session-management invalid-session-url="/mci/invalidSession.html" />
+  <session-management invalid-session-url="/mci/invalidSession" />
 </http>
 
 </beans:beans>
